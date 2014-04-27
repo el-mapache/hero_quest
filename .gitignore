@@ -1,0 +1,6 @@
+.DS_STORE
+*/.DS_STORE
+assets/raw/*
+sprite_sheet.psd
+node_modules
+build/*

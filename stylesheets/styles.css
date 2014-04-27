@@ -1,0 +1,473 @@
+@font-face {
+  font-family: 'munro_smallregular';
+  src: url('fonts/munrosmall-webfont.eot');
+  src: url('fonts/munrosmall-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/munrosmall-webfont.woff') format('woff'),
+       url('fonts/munrosmall-webfont.ttf') format('truetype'),
+       url('fonts/munrosmall-webfont.svg#munro_smallregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'munroregular';
+  src: url('fonts/munro-webfont.eot');
+  src: url('fonts/munro-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/munro-webfont.woff') format('woff'),
+       url('fonts/munro-webfont.ttf') format('truetype'),
+       url('fonts/munro-webfont.svg#munroregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/* RESETS */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html {
+  -webkit-font-smoothing: subpixel-antialiased;
+  image-rendering: -webkit-optimize-contrast;
+  /* see if this keeps looking ok */
+  letter-spacing: 0.5px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+
+h1 {
+  font-size: 23px;
+}
+
+h2 {
+  font-size: 19px;
+}
+
+.munro-small {
+  font-family: "munro_smallregular", "Helvetical Neue", sans-serif;
+}
+
+.munro-regular {
+  font-family: "munroregular", "Helvetical Neue", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.blk-bg {
+  background: #333;
+}
+
+.txt-white {
+  color: #e6e6e6;
+}
+
+body {
+  background: #0A0A0A;
+  overflow:hidden;
+}
+
+button {
+  outline: none;
+  background: none;
+  font-size: 21px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 3px 3px;
+}
+
+#main-screen {
+  position: relative;
+}
+
+#cr-stage {
+  margin: 20px auto;
+  margin-top: 20px;
+}
+
+#cr-stage::after {
+  content: "";
+  background: rgba(100,100,100,0.4) url("../assets/map.jpg") no-repeat left center;
+  background-size: 1280px auto;
+  opacity: 0.95;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.margin-left-medium {
+  margin-left: 60px;
+}
+
+.column1 {
+  width: 120px;
+}
+
+.column2 {
+  width: 248px;
+}
+
+.column3 {
+  width: 376px;
+}
+
+.offset1 {
+  margin-left: 120px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.Console {
+  overflow-y: auto;
+	height: 180px;
+	width: 888px;
+	background: url(/assets/wall_black.png) repeat;
+  border: 3px solid rgb(23, 23, 23);
+  border-radius: 4px 4px;
+	font-family: Verdana;
+	padding: 8px 10px 10px 10px;
+  box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.89);
+  font-family: "munro_smallregular";
+  font-size: 19px;
+}
+
+.InventoryView {
+  border-radius: 4px 4px;
+}
+
+.SpellView {
+  z-index: 10000000;
+}
+
+.Console .lead {
+  margin-bottom: 8px;
+}
+
+.Console .message {
+  color: #e9e9e9
+}
+
+.Console p {
+  margin: 0;
+  height: 0px;
+}
+
+.hide {
+  display: none;
+}
+
+.unit-view {
+  position: relative;
+  padding: 20px;
+  height: 180px;
+  box-shadow: 1px 8px 25px 0px black;
+  border-radius: 2px 2px;
+}
+
+.gold-bottom-border {
+  border-bottom: 1px dotted rgb(245, 245, 121);
+}
+
+.actions {
+  height: 10px;
+  padding: 10px 0px 20px 10px;
+}
+
+.stats {
+  display: block;
+  margin-top: 10px;
+}
+
+.stat {
+  color: #e9e9e9;
+  padding-right: 5px;
+  font-size: 17px;
+  border-bottom: 1px dotted rgb(245, 245, 121);
+  height: 20px;
+}
+
+.med-top-margin {
+  margin-top: 20px;
+}
+
+.medium-font {
+  font-size: 21px;
+}
+
+.flavor {
+  text-align: left;
+  margin-left: 80px;
+}
+
+.name {
+  margin-bottom: 0px;
+  padding: 0px 10px 5px 20px;
+  margin-top: -2px;
+}
+
+.red {
+  color: rgb(255, 84, 84);
+}
+
+.gold {
+  color: gold;
+}
+
+.light-blue {
+  color: rgb(163, 181, 232);
+}
+
+.inventory-list {
+  /*border: 3px solid rgb(23, 23, 23);*/
+  height: auto;
+  padding: 10px;
+  overflow-y: hidden;
+  box-shadow: 1px 1px 10px rgba(0,120, 234,0.18);
+}
+
+.inventory-list button {
+  border: 1px solid gray;
+  padding: 4px;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  background: #e3e3e3;
+}
+
+.inventory-list h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.inventory-list table {
+  border-collapse: collapse;
+  margin: 0 10px 0 10px;
+  border: none;
+  color: #EEE8E8;
+  margin-bottom: 40px;
+}
+
+table td {
+  text-align: center;
+  padding: 5px;
+  vertical-align: center;
+  word-wrap: break-word;
+}
+
+table th {
+  line-height: 100%;
+  padding: 2px 4px 8px;
+  width: 45%;
+}
+
+.spell-list-inner {
+  height: auto;
+  border: 1px solid #CAA056;
+  margin: 5px
+}
+
+.spell-list-holder p {
+  color: #e9e9e9;
+}
+
+.spell-list {
+  width: inherit;
+  list-style: none;
+  color: #e9e9e9;
+}
+
+.spell-item {
+  padding: 12px;
+  color: #e9e9e9;
+  -webkit-transition: background 0.19s linear;
+}
+
+.spell-item.spell-item-disabled {
+  color: #696969;
+}
+
+.spell-item.spell-item-disabled:hover {
+  cursor: initial;
+}
+
+.spell-item:hover {
+  cursor: pointer;
+}
+
+
+.btn {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.btn-action {
+  height: 48px;
+  width: 48px;
+  z-index: 100;
+  position: relative;
+  padding: 0px 5px 0px 5px;
+}
+
+.btn-action:hover {
+  cursor: pointer;
+}
+
+.btn-action:hover:after {
+  content: attr(data-title);
+  font-family: 'munro_smallregular';
+  color: #00CCFF;
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  font-size: 17px;
+  width: auto;
+  text-align: left;
+  z-index: 1000;
+}
+
+.btn-action:disabled {
+  opacity: 0.25;
+}
+
+.btn-action:disabled:hover:after {
+  content: '';
+  cursor: initial;
+}
+
+.action-buttons {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.btn-move {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -720px 0px;
+}
+
+.btn-attack {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -672px 0px;
+}
+
+.btn-spell {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -720px -48px;
+}
+
+.btn-search {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -720px -96px;
+}
+
+.btn-inv {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -672px -96px;
+}
+
+.btn-cancel {
+  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-position: -672px -48px;
+}
+
+.torch {
+  background-image: url(/assets/sprites/sprite_sheet.png);
+  background-position: -280px 0px;
+  height: 40px;
+  width: 25px;
+  display: inline-block;
+  z-index: 100;
+  margin-top: 10px;
+}
+
+.treasure {
+  height: 48px;
+  width: 48px;
+  background-image: url(/assets/sprites/walls_floors-3x.png);
+  background-position: -239px -576px;
+}
+
+.hazard {
+  height: 48px;
+  width: 48px;
+  background-image: url(/assets/sprites/walls_floors-3x.png);
+  background-position: -340px -576px;
+}
+
+.monster {
+  height: 48px;
+  width: 48px;
+  background-image: url(/assets/sprites/walls_floors-3x.png);
+  background-position: 0px -624px;
+}
+
+.wall-background {
+  background: url(/assets/wall_black.png) repeat;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}

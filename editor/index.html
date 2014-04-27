@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta charset='utf8'>
+<head></head>
+<body>
+  <canvas id="editor-grid"></canvas>
+  <canvas id="preview"></canvas>
+
+  <input type="file" id="file-input"/>
+</body>
+<script>
+  function FileLoader(el) {
+    this.el = el;
+
+    this.el.onchange = function(evt) {
+      var file = evt.target.files[0];
+
+      if (!/image\.*/.test(file.type)) {
+        throw new Error("File must be an image.");
+      }
+
+      var img = new Image();
+
+      img.onload = function() {
+        var ctx = document.getElementById('preview').getContext('2d');
+        ctx.drawImage(img, 0, 0);
+      }
+
+      img.src = window.URL.createObjectURL(file);
+    }.bind(this);
+  }
+
+  new FileLoader(document.getElementById('file-input'));
+</script>
+</html>

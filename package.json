@@ -1,0 +1,15 @@
+{
+  "name": "hero-quest",
+  "version": "0.5.0",
+  "author": "mapache",
+  "description": "Hero Quest, in javascript, for some reason",
+  "devDependencies": {
+    "gulp": "~3.5.2",
+    "tiny-lr": "0.0.5",
+    "gulp-concat": "~2.1.7",
+    "gulp-livereload": "~1.2.0",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-uglify": "~0.2.1",
+    "gulp-rename": "~1.1.0"
+  }
+}
