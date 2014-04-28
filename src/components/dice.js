@@ -18,10 +18,10 @@ Crafty.c('CombatDie', {
   },
 
   roll: function(action) {
-    var i = 0, rolls = [];
+    var i = 0;
+    var rolls = [];
 
-    // TODO: Make this a map
-    for(i; i < action; i++) {
+    for (i; i < action; i++) {
       var roll = this._faces[(Math.random() * this._sides) | 0];
       rolls.push(roll);
     }
@@ -31,25 +31,8 @@ Crafty.c('CombatDie', {
 });
 
 /*
- * Six sided die.  Used primarily for movement, but also occoasianlly for saving throws.
+ * Six sided die.  Used primarily for movement, but also occasianlly for saving throws.
 **/
-
-Crafty.c('Die', {
-  _sides: 6,
-  init: function() {
-    this.bind('RemoveComponent', function() {
-			this.unbind('RemoveComponent');
-    });
-  },
-
-  roll: function() {
-    // The result of a single 'roll'
-    var outcome = Math.floor(Math.random() * this._sides + 1);
-
-    // Tell the parent component a roll has finished.
-    this.trigger('moveRoll', { value: outcome });
-  },
-});
 
 Crafty.c('MovementDie', {
   _sides: 6,

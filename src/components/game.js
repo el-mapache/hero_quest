@@ -111,6 +111,7 @@ Crafty.c('Game', {
 
   getUnit: function(data) {
     var unit = Crafty(data.entityId),
+        // if the game has an active unit registered, return it from the lookup table.
         activeUnit = this.activeUnit && this.lookupActiveUnit();
 
     if (!unit) {
@@ -180,12 +181,13 @@ Crafty.c('Game', {
   },
 
   endGame: function(player) {
+    Crafty.console.writeLine('system', 'Game Over');
+
     // check if the player has lost.
     var restart = confirm(player + ' has lost. Restart?');
 
     if (restart) window.location.reload();
 
-    Crafty.console.writeLine('system', 'Game Over');
     // iam unclear as to what this even does.
     Crafty.unbind();
     // stop the clock

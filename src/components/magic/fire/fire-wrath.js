@@ -32,9 +32,9 @@ Crafty.c('FireOfWrath', {
       return true;
     }
 
-    target.trigger('TakeDamage', -1);
+    Crafty.console.writeLine('system', this.name + ' cast upon ' + target.getAttribute('name'));
 
-    Crafty.console.writeLine('system', this.name + ' cast upon ' + target.getAttribute('name') + '. 1 body point of damage was suffered.');
+    target.trigger('TakeDamage', -1);
 
     return true;
   },
