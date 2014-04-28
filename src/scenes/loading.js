@@ -23,7 +23,7 @@ Crafty.scene('Loading', function() {
      * that they cause the component to be drawn with a certain sprite
     **/
 
-    Crafty.sprite(16, 'assets/walls_floors.png', {
+    Crafty.sprite(16, 'assets/sprites/walls_floors.png', {
       spr_solid_rock:   [0, 12],
       spr_wall_a:       [3, 4],
       spr_wall_d2:      [0, 2],
