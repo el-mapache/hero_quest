@@ -19,7 +19,7 @@ Crafty.scene('Main', function() {
           fontSize: "40px",
           textAlign: "center",
         }).registerCallback(function() {
-          loadScene('PlayerSelection', 24);
+          loadScene('Loading', 24);
         });
 });
 
