@@ -398,32 +398,32 @@ table th {
 }
 
 .btn-move {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -720px 0px;
 }
 
 .btn-attack {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -672px 0px;
 }
 
 .btn-spell {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -720px -48px;
 }
 
 .btn-search {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -720px -96px;
 }
 
 .btn-inv {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -672px -96px;
 }
 
 .btn-cancel {
-  background-image: url(http://localhost:8000/assets/sprites/walls_floors-3x.png);
+  background-image: url(/assets/sprites/walls_floors-3x.png);
   background-position: -672px -48px;
 }
 
