@@ -5,7 +5,7 @@ Crafty.c('GameStateView', {
 
     this.el = this._element;
     this.el.addEventListener('click', TL.bind(this.endTurn, this));
-    this.template = document.getElementById('game-view-template').innerHTML;
+    this.template = HeroQuest.Templates.gameView;
 
     this.bind('AttributeUpdate', TL.bind(this.updateView, this));
   },

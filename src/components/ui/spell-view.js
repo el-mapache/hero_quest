@@ -5,7 +5,7 @@ Crafty.c('SpellView', {
     this.selector = null;
 
     this.el = this._element;
-    this.template = document.getElementById('spellbook-template').innerHTML;
+    this.template = HeroQuest.Templates.spellbook;
   },
 
   setOptions: function(options) {

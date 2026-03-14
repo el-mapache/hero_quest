@@ -4,7 +4,7 @@ Crafty.c("InventoryView", {
     this.attr({ x: 720, y: 225 });
 
     this.el = this._element;
-    this.template = document.getElementById("inventory-template").innerHTML;
+    this.template = HeroQuest.Templates.inventory;
     this.isVisible = false;
     this._onDrink = this.onDrink.bind(this);
     this._onClose = this.onClose.bind(this);

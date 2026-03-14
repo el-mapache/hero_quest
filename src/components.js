@@ -63,7 +63,7 @@ Crafty.c('PlayerSearch', {
   },
 
   handleAction: function(card) {
-    var template = document.getElementById('treasure-template').innerHTML,
+    var template = HeroQuest.Templates.treasure,
         content = HeroQuest.render(template, card);
 
     popupController.update(content).render().show();
