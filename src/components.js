@@ -66,7 +66,7 @@ Crafty.c('PlayerSearch', {
     var template = HeroQuest.Templates.treasure,
         content = HeroQuest.render(template, card);
 
-    popupController.update(content).render().show();
+    HeroQuest.popupController.update(content).render().show();
 
     // Call the effect method of the card.
     card.effect(this);
@@ -109,12 +109,12 @@ Crafty.c('UnitCastSpell', {
 
     HeroQuest.radius(this.at(), 8, function(x, y) {
       // Always continue past the current units space.
-      if (x +','+y === unit.reportPosition() || Board.at(x,y).has('Unit') ||
-          !Board.at(x,y).has('Solid')) {
+      if (x +','+y === unit.reportPosition() || HeroQuest.Board.at(x,y).has('Unit') ||
+          !HeroQuest.Board.at(x,y).has('Solid')) {
         return false;
       }
 
-      return Board.occupied(x, y);
+      return HeroQuest.Board.occupied(x, y);
     }, this._placeTile);
   },
 
@@ -126,12 +126,12 @@ Crafty.c('UnitCastSpell', {
     // The coordinates of the space upon which the attack is directed.
     var coords = data.dest;
 
-    if(!Board.occupied(coords.x, coords.y)) {
+    if(!HeroQuest.Board.occupied(coords.x, coords.y)) {
       Crafty.console.writeLine('system', 'That isn\'t a valid target.');
       return false;
     }
 
-    this.finishAction(Board.at(coords.x, coords.y));
+    this.finishAction(HeroQuest.Board.at(coords.x, coords.y));
   },
 
   // this needs to take a block essentially, a callback to execute
@@ -212,13 +212,13 @@ Crafty.c('PlayerAttack', {
     var coords = data.dest;
 
     // Check if the space to attack has anything in it.
-    if(!Board.occupied(coords.x, coords.y)) {
+    if(!HeroQuest.Board.occupied(coords.x, coords.y)) {
       Crafty.console.writeLine('system', 'That isn\'t a valid target.');
       return false;
     }
 
     // The targeted unit
-    var target = Board.at(coords.x, coords.y)
+    var target = HeroQuest.Board.at(coords.x, coords.y)
 
     // Trigger the before battle effects hook.
     this.trigger('BeforeAttack');
@@ -365,8 +365,8 @@ Crafty.c('Move', {
 
   _tileIsOccupied: function(x, y) {
     // Has the roll gone out of bounds
-    if (Board.outOfBounds(x, y)) return true;
-    if (Board.occupied(x, y)) return true;
+    if (HeroQuest.Board.outOfBounds(x, y)) return true;
+    if (HeroQuest.Board.occupied(x, y)) return true;
   },
 
   _placeTile: function(x, y) {
@@ -415,7 +415,7 @@ Crafty.c('PlayerMovement', {
 
     this.currentPos = null;
 
-    this.route = HeroQuest.AStar(Board, this.at(), data.dest, this.passThroughWalls).findPath();
+    this.route = HeroQuest.AStar(HeroQuest.Board, this.at(), data.dest, this.passThroughWalls).findPath();
 
     this.recalculatePosition();
 	},
@@ -471,8 +471,8 @@ Crafty.c('PlayerMovement', {
 	// Move sprite towards its destination in each frame
   _moveToTile: function() {
     // Open a door as we come to it.
-    if (Board.at(this.dest.x, this.dest.y).type === 'door') {
-      Board.at(this.dest.x, this.dest.y).canOpenDoor();
+    if (HeroQuest.Board.at(this.dest.x, this.dest.y).type === 'door') {
+      HeroQuest.Board.at(this.dest.x, this.dest.y).canOpenDoor();
     }
 
 	  this.x += this.xDiff * this._tileSize / this._stepFrames;

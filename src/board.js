@@ -40,7 +40,7 @@ Crafty.c('Board', {
   },
 
   generate: function() {
-    window.Board = this;
+    HeroQuest.Board = this;
     var width = HeroQuest.CONSTANTS.BOARD_WIDTH;
     var height = HeroQuest.CONSTANTS.BOARD_HEIGHT;
 
@@ -101,7 +101,7 @@ Crafty.c('Board', {
             tile = levelComponent.subclass(space, {x: x, y: y}, zone[y][x]);
           } else {
             // loop through every tile and make an entity.
-            tile = TileDictionary.generateTile(l[y][x], {x: x, y: y}, zone[y][x]);
+            tile = HeroQuest.TileDictionary.generateTile(l[y][x], {x: x, y: y}, zone[y][x]);
           }
 
           // this.fogMap[x+','+y] = Crafty.e('Color, Grid, 2D, Canvas')
@@ -109,9 +109,9 @@ Crafty.c('Board', {
           //                             .at(x,y)
           //                             .color('black');
 
-          if (tile && tile.has('Unit')) Board._addToUnit(tile);
+          if (tile && tile.has('Unit')) HeroQuest.Board._addToUnit(tile);
 
-          if (tile && !tile.has('Solid')) Board.map[x][y].floorPntr = tile[0];
+          if (tile && !tile.has('Solid')) HeroQuest.Board.map[x][y].floorPntr = tile[0];
         }
       }
     }
@@ -119,11 +119,11 @@ Crafty.c('Board', {
 
   _addToUnit: function(tile) {
     // Board triggers a register event.
-    tile.bind('Destroy', Board.onUnitRemove);
+    tile.bind('Destroy', HeroQuest.Board.onUnitRemove);
     this.trigger('RegisterUnit', tile);
   },
 
   onUnitRemove: function(unit) {
-    Board.trigger('Destroy', unit);
+    HeroQuest.Board.trigger('Destroy', unit);
   }
 });

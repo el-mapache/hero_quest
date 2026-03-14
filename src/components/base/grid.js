@@ -33,7 +33,7 @@ Crafty.c('Grid', {
     });
 
     if (occupy) {
-      Board.occupy(x, y, this[0]);
+      HeroQuest.Board.occupy(x, y, this[0]);
     }
 
     return this;
@@ -48,6 +48,6 @@ Crafty.c('Grid', {
    * @return undefined
   **/
   vacate: function(x, y) {
-    Board.unoccupy(x, y);
+    HeroQuest.Board.unoccupy(x, y);
   }
 });

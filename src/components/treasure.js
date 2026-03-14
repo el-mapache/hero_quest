@@ -11,14 +11,14 @@ Crafty.c('Treasure', {
 
         // Check if squares are uoccupied.
         for (var i = 0; i < fourway.length; i++) {
-          if (!Board.occupied(unitAt.x + fourway[i][0], unitAt.y + fourway[i][1])) {
+          if (!HeroQuest.Board.occupied(unitAt.x + fourway[i][0], unitAt.y + fourway[i][1])) {
             direction = [unitAt.x + fourway[i][0], unitAt.y + fourway[i][1]];
             break;
           }
         }
 
         if (direction) {
-          Crafty.e(Board.level.wanderingMonster)
+          Crafty.e(HeroQuest.Board.level.wanderingMonster)
                 .attr({z: 2, h: 16, w: 16 })
                 .at(direction[0], direction[1], true);
         }

@@ -64,7 +64,7 @@ Crafty.scene('Game', function() {
   //   });
 
   this.unitUIController = new UnitUIController();
-  this.popupController = popupController = new PopupController(document.getElementById('default-popup'));
+  this.popupController = HeroQuest.popupController = new PopupController(document.getElementById('default-popup'));
 
   // Create the global console object.
   Crafty.console = Crafty.e('Console').attr({x: 184 ,y: 485, z: 100});

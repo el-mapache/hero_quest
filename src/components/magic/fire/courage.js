@@ -40,14 +40,14 @@ Crafty.c('Courage', {
 
     HeroQuest.radius(this.at(), 8, function(x,y) {
       // Ignore units and yourself when doing LOS checks.
-      if (x +','+y === self.reportPosition() || Board.at(x,y).has('Unit')) {
+      if (x +','+y === self.reportPosition() || HeroQuest.Board.at(x,y).has('Unit')) {
         return false;
       }
 
-      return Board.occupied(x, y);
+      return HeroQuest.Board.occupied(x, y);
     }, function(x, y, intensity) {
       // There is an enemy somewhere in the unit's LOS, so stop the check.
-      if (Board.at(x, y).has('NPC')) {
+      if (HeroQuest.Board.at(x, y).has('NPC')) {
         nothingInLOS = false;
         return true;
       } else {
