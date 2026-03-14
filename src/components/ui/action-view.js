@@ -12,7 +12,7 @@ Crafty.c('ActionView', {
 
     this.el = this._element;
 
-    this.template = document.getElementById('action-buttons-template').innerHTML,
+    this.template = HeroQuest.Templates.actionButtons,
     this.fragment = document.createElement('div');
 
     // Store the template in a temporary DOM element so we can query it.

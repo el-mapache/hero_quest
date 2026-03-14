@@ -6,7 +6,7 @@ Crafty.c('UnitView', {
     this.attr({x: 720});
 
     this.el = this._element;
-    this.template = document.getElementById('unit-view-template').innerHTML;
+    this.template = HeroQuest.Templates.unitView;
   },
 
   setSprite: function(unitName, spriteCoords) {
